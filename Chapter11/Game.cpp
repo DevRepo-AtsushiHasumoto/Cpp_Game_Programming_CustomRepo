@@ -9,7 +9,7 @@
 #include "Game.h"
 #include <algorithm>
 #include "Renderer.h"
-#include "AudioSystem.h"
+//#include "AudioSystem.h"
 #include "PhysWorld.h"
 #include "Actor.h"
 #include "UIScreen.h"
@@ -20,8 +20,8 @@
 #include "TargetActor.h"
 #include "BallActor.h"
 #include "PauseMenu.h"
-#include <SDL/SDL.h>
-#include <SDL/SDL_ttf.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 #include "Font.h"
 #include <fstream>
 #include <sstream>
@@ -29,7 +29,7 @@
 
 Game::Game()
 :mRenderer(nullptr)
-,mAudioSystem(nullptr)
+//,mAudioSystem(nullptr)
 ,mPhysWorld(nullptr)
 ,mGameState(EGameplay)
 ,mUpdatingActors(false)
@@ -56,16 +56,17 @@ bool Game::Initialize()
 	}
 
 	// Create the audio system
-	mAudioSystem = new AudioSystem(this);
+	//mAudioSystem = new AudioSystem(this);
+	/*
 	if (!mAudioSystem->Initialize())
 	{
 		SDL_Log("Failed to initialize audio system");
-		mAudioSystem->Shutdown();
-		delete mAudioSystem;
-		mAudioSystem = nullptr;
+		//mAudioSystem->Shutdown();
+		//delete mAudioSystem;
+		//mAudioSystem = nullptr;
 		return false;
 	}
-
+	*/
 	// Create the physics world
 	mPhysWorld = new PhysWorld(this);
 	
@@ -173,17 +174,17 @@ void Game::HandleKeyPress(int key)
 	case '-':
 	{
 		// Reduce master volume
-		float volume = mAudioSystem->GetBusVolume("bus:/");
-		volume = Math::Max(0.0f, volume - 0.1f);
-		mAudioSystem->SetBusVolume("bus:/", volume);
+		//float volume = mAudioSystem->GetBusVolume("bus:/");
+		//volume = Math::Max(0.0f, volume - 0.1f);
+		//mAudioSystem->SetBusVolume("bus:/", volume);
 		break;
 	}
 	case '=':
 	{
 		// Increase master volume
-		float volume = mAudioSystem->GetBusVolume("bus:/");
-		volume = Math::Min(1.0f, volume + 0.1f);
-		mAudioSystem->SetBusVolume("bus:/", volume);
+		//float volume = mAudioSystem->GetBusVolume("bus:/");
+		//volume = Math::Min(1.0f, volume + 0.1f);
+		//mAudioSystem->SetBusVolume("bus:/", volume);
 		break;
 	}
 	case '1':
@@ -259,7 +260,7 @@ void Game::UpdateGame()
 	}
 
 	// Update audio system
-	mAudioSystem->Update(deltaTime);
+	//mAudioSystem->Update(deltaTime);
 	
 	// Update UI screens
 	for (auto ui : mUIStack)
@@ -349,7 +350,7 @@ void Game::LoadData()
 	mHUD = new HUD(this);
 	
 	// Start music
-	mMusicEvent = mAudioSystem->PlayEvent("event:/Music");
+	//mMusicEvent = mAudioSystem->PlayEvent("event:/Music");
 
 	// Enable relative mouse mode for camera look
 	SDL_SetRelativeMouseMode(SDL_TRUE);
@@ -407,10 +408,12 @@ void Game::Shutdown()
 	{
 		mRenderer->Shutdown();
 	}
+	/*
 	if (mAudioSystem)
 	{
 		mAudioSystem->Shutdown();
 	}
+	*/
 	SDL_Quit();
 }
 

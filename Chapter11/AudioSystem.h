@@ -25,7 +25,7 @@ namespace FMOD
 		class Bus;
 	};
 };
-
+/*
 class AudioSystem
 {
 public:
@@ -72,3 +72,4 @@ private:
 	// FMOD Low-level system (in case needed)
 	FMOD::System* mLowLevelSystem;
 };
+*/

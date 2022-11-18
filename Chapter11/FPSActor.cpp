@@ -8,11 +8,11 @@
 
 #include "FPSActor.h"
 #include "MoveComponent.h"
-#include "SDL/SDL_scancode.h"
+#include "SDL2/SDL_scancode.h"
 #include "Renderer.h"
-#include "AudioSystem.h"
+//#include "AudioSystem.h"
 #include "Game.h"
-#include "AudioComponent.h"
+//#include "AudioComponent.h"
 #include "FPSCamera.h"
 #include "MeshComponent.h"
 #include "BallActor.h"
@@ -23,10 +23,10 @@ FPSActor::FPSActor(Game* game)
 	:Actor(game)
 {
 	mMoveComp = new MoveComponent(this);
-	mAudioComp = new AudioComponent(this);
+	//mAudioComp = new AudioComponent(this);
 	mLastFootstep = 0.0f;
-	mFootstep = mAudioComp->PlayEvent("event:/Footstep");
-	mFootstep.SetPaused(true);
+	//mFootstep = mAudioComp->PlayEvent("event:/Footstep");
+	//mFootstep.SetPaused(true);
 
 	mCameraComp = new FPSCamera(this);
 
@@ -55,8 +55,8 @@ void FPSActor::UpdateActor(float deltaTime)
 		!Math::NearZero(mMoveComp->GetStrafeSpeed())) &&
 		mLastFootstep <= 0.0f)
 	{
-		mFootstep.SetPaused(false);
-		mFootstep.Restart();
+		//mFootstep.SetPaused(false);
+		//mFootstep.Restart();
 		mLastFootstep = 0.5f;
 	}
 	
@@ -141,15 +141,15 @@ void FPSActor::Shoot()
 	// Rotate the ball to face new direction
 	ball->RotateToNewForward(dir);
 	// Play shooting sound
-	mAudioComp->PlayEvent("event:/Shot");
+	//mAudioComp->PlayEvent("event:/Shot");
 }
 
 void FPSActor::SetFootstepSurface(float value)
 {
 	// Pause here because the way I setup the parameter in FMOD
 	// changing it will play a footstep
-	mFootstep.SetPaused(true);
-	mFootstep.SetParameter("Surface", value);
+	//mFootstep.SetPaused(true);
+	//mFootstep.SetParameter("Surface", value);
 }
 
 void FPSActor::SetVisible(bool visible)

@@ -27,11 +27,11 @@ public:
 	void FixCollisions();
 private:
 	class MoveComponent* mMoveComp;
-	class AudioComponent* mAudioComp;
+	//class AudioComponent* mAudioComp;
 	class MeshComponent* mMeshComp;
 	class FPSCamera* mCameraComp;
 	class BoxComponent* mBoxComp;
 	class Actor* mFPSModel;
-	SoundEvent mFootstep;
+	//SoundEvent mFootstep;
 	float mLastFootstep;
 };

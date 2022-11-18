@@ -10,7 +10,7 @@
 #include "Actor.h"
 #include "Game.h"
 #include "AudioSystem.h"
-
+/*
 AudioComponent::AudioComponent(Actor* owner, int updateOrder)
 	:Component(owner, updateOrder)
 {
@@ -99,3 +99,4 @@ void AudioComponent::StopAllEvents()
 	mEvents2D.clear();
 	mEvents3D.clear();
 }
+*/

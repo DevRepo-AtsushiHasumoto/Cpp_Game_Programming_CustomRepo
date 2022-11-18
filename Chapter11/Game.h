@@ -12,7 +12,7 @@
 #include <vector>
 #include "Math.h"
 #include "SoundEvent.h"
-#include <SDL/SDL_types.h>
+#include <SDL2/SDL_types.h>
 
 class Game
 {
@@ -26,7 +26,7 @@ public:
 	void RemoveActor(class Actor* actor);
 
 	class Renderer* GetRenderer() { return mRenderer; }
-	class AudioSystem* GetAudioSystem() { return mAudioSystem; }
+	//class AudioSystem* GetAudioSystem() { return mAudioSystem; }
 	class PhysWorld* GetPhysWorld() { return mPhysWorld; }
 	class HUD* GetHUD() { return mHUD; }
 	
@@ -73,7 +73,7 @@ private:
 	std::vector<class Actor*> mPendingActors;
 
 	class Renderer* mRenderer;
-	class AudioSystem* mAudioSystem;
+	//class AudioSystem* mAudioSystem;
 	class PhysWorld* mPhysWorld;
 	class HUD* mHUD;
 
@@ -86,5 +86,5 @@ private:
 	std::vector<class PlaneActor*> mPlanes;
 	class FPSActor* mFPSActor;
 	class SpriteComponent* mCrosshair;
-	SoundEvent mMusicEvent;
+	//SoundEvent mMusicEvent;
 };

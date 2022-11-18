@@ -19,7 +19,7 @@ public:
 
 	void HitTarget();
 private:
-	class AudioComponent* mAudioComp;
+	//class AudioComponent* mAudioComp;
 	class BallMove* mMyMove;
 	float mLifeSpan;
 };

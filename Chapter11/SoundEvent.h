@@ -36,9 +36,9 @@ public:
 protected:
 	// Make this constructor protected and AudioSystem a friend
 	// so that only AudioSystem can access this constructor.
-	friend class AudioSystem;
-	SoundEvent(class AudioSystem* system, unsigned int id);
+	//friend class AudioSystem;
+	//SoundEvent(class AudioSystem* system, unsigned int id);
 private:
-	class AudioSystem* mSystem;
+	//class AudioSystem* mSystem;
 	unsigned int mID;
 };

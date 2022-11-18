@@ -7,13 +7,13 @@
 // ----------------------------------------------------------------
 
 #include "AudioSystem.h"
-#include <SDL/SDL_log.h>
-#include <fmod_studio.hpp>
-#include <fmod_errors.h>
+#include <SDL2/SDL_log.h>
+//#include <fmod_studio.hpp>
+//#include <fmod_errors.h>
 #include <vector>
 
-unsigned int AudioSystem::sNextID = 0;
-
+//unsigned int AudioSystem::sNextID = 0;
+/*
 AudioSystem::AudioSystem(Game* game)
 	:mGame(game)
 	,mSystem(nullptr)
@@ -346,3 +346,4 @@ FMOD::Studio::EventInstance* AudioSystem::GetEventInstance(unsigned int id)
 	}
 	return event;
 }
+*/

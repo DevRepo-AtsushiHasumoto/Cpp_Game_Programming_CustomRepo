@@ -24,7 +24,7 @@ BallActor::BallActor(Game* game)
 	mc->SetMesh(mesh);
 	mMyMove = new BallMove(this);
 	mMyMove->SetForwardSpeed(1500.0f);
-	mAudioComp = new AudioComponent(this);
+	//mAudioComp = new AudioComponent(this);
 }
 
 void BallActor::UpdateActor(float deltaTime)
@@ -45,5 +45,5 @@ void BallActor::SetPlayer(Actor* player)
 
 void BallActor::HitTarget()
 {
-	mAudioComp->PlayEvent("event:/Ding");
+	//mAudioComp->PlayEvent("event:/Ding");
 }
